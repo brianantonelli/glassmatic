@@ -1,0 +1,3 @@
+[submodule "automatic-php-api"]
+	path = automatic-php-api
+	url = git://github.com/adamwulf/automatic-php-api.git
