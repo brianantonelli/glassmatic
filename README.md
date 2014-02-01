@@ -5,7 +5,7 @@ Glass + Automatic = Glassmatic
 
 ## Cloning this Repo
 
-This repo uses a PHP OAuth2 library for authentication as a submodule. When cloning, be sure to:
+This repo uses a Automatic PHP API for communicating with Automatic as a submodule. When cloning, be sure to:
 
 ```
 $ git clone https://github.com/brianantonelli/glassmatic.git
