@@ -18,7 +18,7 @@ if(isset($_SESSION["automatic_token"])){
 
 if(!$automatic->isLoggedIn()){
 	if (!isset($_GET['code'])){
-		$scopes = array("scope:location"); // "scope:vehicle", "scope:trip:summary"
+		$scopes = array("scope:location", "scope:vehicle", "scope:trip:summary");
 		$auth_url = $automatic->authenticationURLForScopes($scopes);
 	    header('Location: ' . $auth_url);
 	    die('Redirect');
@@ -27,6 +27,10 @@ if(!$automatic->isLoggedIn()){
 	    $response_token = $automatic->getTokenForCode($_GET["code"]);
 	    $_SESSION["automatic_token"] = $response_token; // keep user logged in w/ session
 	    $automatic->setOAuthToken($_SESSION["automatic_token"]);
+
+	    $qr = $response_token->access_token;
+	    var_dump($response_token);
+	    echo "<img src='http://chart.apis.google.com/chart?cht=qr&chs=500x500&chl=$qr&chld=H|0'/>";
 	}
 }
 else if(isset($_REQUEST["logout"])){
